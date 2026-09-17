@@ -20,29 +20,48 @@ export const localeLabels: Record<Locale, string> = {
 export const ui = {
   en: {
     nav: {
-      solutions: '--solutions',
+      solutions: '--what-i-do',
+      portfolio: '--portfolio',
+      featured: '--featured',
       about: '--about',
       contact: '--contact',
+      blog: '--blog',
       github: '--github',
       language: 'language',
     },
     hero: {
       cmd: 'whoami',
       title: 'Gustavo Mauricio de&nbsp;Barros',
-      lede: 'Software architect working the .NET ecosystem. I build the libraries developers reach for when a problem has a name: each one below is the problem, then the one-liner that removes it.',
+      lede: 'I turn ideas and complex operations into clear, reliable digital experiences — from a first conversation to a product that is ready to grow.',
       viewSolutions: 'view solutions',
       contact: 'contact',
     },
     solutions: {
-      headline: 'Every .NET pain, next to the line that removes it.',
-      prompt: 'problem',
-      entries: (n: number) => `${n} entries`,
-      viewMore: 'view more',
+      cmd: 'what-i-do',
+      headline: 'Technology that makes the work feel simpler.',
+      intro: 'I help businesses turn needs into useful, intuitive digital products — without making the process harder than it needs to be.',
+      services: [
+        { title: 'Digital products', body: 'From idea to launch, I help shape websites and systems that people can actually use with confidence.' },
+        { title: 'Clearer operations', body: 'I organize processes and information so your team can spend less time managing work and more time doing it.' },
+        { title: 'Built to last', body: 'Thoughtful foundations let a product evolve as your business, customers, and goals change.' },
+      ],
+    },
+    portfolio: {
+      cmd: 'portfolio',
+      headline: 'Selected work',
+      intro: 'A few products, platforms, and open-source contributions I have helped bring to life.',
+      visit: 'visit project',
+      details: 'view details',
+    },
+    featuredProject: {
+      label: 'featured website',
+      body: 'A warm, inviting digital home for a music school in Atibaia — designed to make the first step toward music feel natural.',
+      visit: 'visit Casa da Música',
     },
     about: {
       cmd: 'whoami --verbose',
-      headline: 'An architect, not just a library author.',
-      body: "I'm Gustavo Mauricio de Barros, a software architect and core developer at <a href=\"https://www.jjconsulting.com.br\">JJConsulting</a>'s internal framework team. I turn recurring engineering problems into reliable tools, reusable libraries, and architecture that can grow with the business.",
+      headline: 'A partner for turning complexity into progress.',
+      body: "I'm a software architect and developer at <a href=\"https://www.jjconsulting.com.br\">JJConsulting</a>. I turn ambitious ideas into practical, reliable products that are ready to evolve.",
       status: 'running',
       events: [
         { year: '2019', text: 'Started Systems Analysis and Development at IFSP' },
@@ -55,7 +74,7 @@ export const ui = {
     },
     contact: {
       cmd: 'contact',
-      headline: 'Need a .NET architect or to use a tool? Both start the same way.',
+      headline: 'Have an idea, a challenge, or a process that could work better?',
       linkedin: 'linkedin /in/gumbarros',
       github: 'github /gumbarros',
       photo: 'me.png',
@@ -66,35 +85,54 @@ export const ui = {
       mit: 'MIT libraries',
     },
     meta: {
-      title: 'Gustavo Mauricio de Barros · .NET Software Architect',
-      description: 'Software architect building .NET tools that turn named problems into one-liners.',
+      title: 'Gustavo Mauricio de Barros · Software Architect',
+      description: 'Digital products and systems that make complex work feel simple.',
     },
   },
   'pt-br': {
     nav: {
-      solutions: '--soluções',
+      solutions: '--o que faço',
+      portfolio: '--portfólio',
+      featured: '--destaque',
       about: '--sobre',
       contact: '--contato',
+      blog: '--blog',
       github: '--github',
       language: 'idioma',
     },
     hero: {
       cmd: 'whoami',
       title: 'Gustavo Mauricio de&nbsp;Barros',
-      lede: 'Arquiteto de software atuando no ecossistema .NET. Construo as bibliotecas que os desenvolvedores procuram quando um problema tem nome. Cada uma abaixo é um problema, depois a linha que o soluciona.',
+      lede: 'Transformo ideias e operações complexas em experiências digitais claras e confiáveis — da primeira conversa a um produto pronto para crescer.',
       viewSolutions: 'ver soluções',
       contact: 'contato',
     },
     solutions: {
-      headline: 'Cada dor do .NET, ao lado da linha que a remove.',
-      prompt: 'problema',
-      entries: (n: number) => `${n} entradas`,
-      viewMore: 'ver mais',
+      cmd: 'o-que-faço',
+      headline: 'Tecnologia que deixa o trabalho mais simples.',
+      intro: 'Ajudo negócios a transformar necessidades em produtos digitais úteis e intuitivos — sem complicar o processo.',
+      services: [
+        { title: 'Produtos digitais', body: 'Da ideia ao lançamento, ajudo a criar sites e sistemas que as pessoas usam com segurança.' },
+        { title: 'Operações mais claras', body: 'Organizo processos e informações para sua equipe gastar menos tempo gerenciando o trabalho e mais tempo fazendo.' },
+        { title: 'Feito para durar', body: 'Uma boa base permite que o produto acompanhe as mudanças do negócio, das pessoas e dos objetivos.' },
+      ],
+    },
+    portfolio: {
+      cmd: 'portfólio',
+      headline: 'Trabalhos selecionados',
+      intro: 'Alguns produtos, plataformas e contribuições open source que ajudei a tirar do papel.',
+      visit: 'visitar projeto',
+      details: 'ver detalhes',
+    },
+    featuredProject: {
+      label: 'site em destaque',
+      body: 'Uma casa digital acolhedora para uma escola de música em Atibaia — criada para que o primeiro passo em direção à música seja natural.',
+      visit: 'visitar Casa da Música',
     },
     about: {
       cmd: 'whoami --verbose',
-      headline: 'Um arquiteto, não apenas um autor de bibliotecas.',
-      body: 'Sou Gustavo Mauricio de Barros, arquiteto de software e desenvolvedor core no time de frameworks internos da <a href="https://www.jjconsulting.com.br">JJConsulting</a>. Transformo problemas recorrentes de engenharia em ferramentas confiáveis, bibliotecas reutilizáveis e arquiteturas que crescem junto com o negócio.',
+      headline: 'Um parceiro para transformar complexidade em avanço.',
+      body: 'Sou arquiteto de software e desenvolvedor na <a href="https://www.jjconsulting.com.br">JJConsulting</a>. Transformo ideias ambiciosas em produtos práticos, confiáveis e prontos para evoluir.',
       status: 'rodando',
       events: [
         { year: '2019', text: 'Iniciei Análise e Desenvolvimento de Sistemas no IFSP' },
@@ -107,7 +145,7 @@ export const ui = {
     },
     contact: {
       cmd: 'contato',
-      headline: 'Precisa de um arquiteto .NET ou de usar uma ferramenta? Ambos começam do mesmo jeito.',
+      headline: 'Tem uma ideia, um desafio ou um processo que pode funcionar melhor?',
       linkedin: 'linkedin /in/gumbarros',
       github: 'github /gumbarros',
       photo: 'me.png',
@@ -118,35 +156,54 @@ export const ui = {
       mit: 'bibliotecas MIT',
     },
     meta: {
-      title: 'Gustavo Mauricio de Barros · Arquiteto de Software .NET',
-      description: 'Arquiteto de software que constrói ferramentas .NET que transformam problemas com nome em uma linha.',
+      title: 'Gustavo Mauricio de Barros · Arquiteto de Software',
+      description: 'Produtos e sistemas digitais que deixam o trabalho complexo mais simples.',
     },
   },
   es: {
     nav: {
-      solutions: '--soluciones',
+      solutions: '--lo que hago',
+      portfolio: '--portafolio',
+      featured: '--destacado',
       about: '--sobre',
       contact: '--contacto',
+      blog: '--blog',
       github: '--github',
       language: 'idioma',
     },
     hero: {
       cmd: 'whoami',
       title: 'Gustavo Mauricio de&nbsp;Barros',
-      lede: 'Arquitecto de software trabajando en el ecosistema .NET. Construyo las bibliotecas que los desarrolladores buscan cuando un problema tiene nombre: cada una abajo es el problema, luego la línea que lo elimina.',
+      lede: 'Convierto ideas y operaciones complejas en experiencias digitales claras y confiables, desde la primera conversación hasta un producto listo para crecer.',
       viewSolutions: 'ver soluciones',
       contact: 'contacto',
     },
     solutions: {
-      headline: 'Cada dolor de .NET, junto a la línea que lo elimina.',
-      prompt: 'problema',
-      entries: (n: number) => `${n} entradas`,
-      viewMore: 'ver más',
+      cmd: 'lo-que-hago',
+      headline: 'Tecnología que hace el trabajo más simple.',
+      intro: 'Ayudo a los negocios a convertir necesidades en productos digitales útiles e intuitivos, sin complicar el proceso.',
+      services: [
+        { title: 'Productos digitales', body: 'De la idea al lanzamiento, ayudo a crear sitios y sistemas que las personas usan con confianza.' },
+        { title: 'Operaciones más claras', body: 'Organizo procesos e información para que su equipo dedique menos tiempo a gestionar el trabajo y más a hacerlo.' },
+        { title: 'Hecho para durar', body: 'Una base cuidadosa permite que el producto evolucione junto con el negocio, las personas y los objetivos.' },
+      ],
+    },
+    portfolio: {
+      cmd: 'portafolio',
+      headline: 'Trabajo seleccionado',
+      intro: 'Algunos productos, plataformas y contribuciones open source que ayudé a hacer realidad.',
+      visit: 'visitar proyecto',
+      details: 'ver detalles',
+    },
+    featuredProject: {
+      label: 'sitio destacado',
+      body: 'Un hogar digital acogedor para una escuela de música en Atibaia, creado para que el primer paso hacia la música sea natural.',
+      visit: 'visitar Casa da Música',
     },
     about: {
       cmd: 'whoami --verbose',
-      headline: 'Un arquitecto, no solo un autor de bibliotecas.',
-      body: 'Soy Gustavo Mauricio de Barros, arquitecto de software y desarrollador core en el equipo de frameworks internos de <a href="https://www.jjconsulting.com.br">JJConsulting</a>. Convierto problemas recurrentes de ingeniería en herramientas confiables, bibliotecas reutilizables y arquitecturas que crecen con el negocio.',
+      headline: 'Un socio para transformar la complejidad en progreso.',
+      body: 'Soy arquitecto de software y desarrollador en <a href="https://www.jjconsulting.com.br">JJConsulting</a>. Transformo ideas ambiciosas en productos prácticos, confiables y listos para evolucionar.',
       status: 'ejecutando',
       events: [
         { year: '2019', text: 'Comencé Análisis y Desarrollo de Sistemas en IFSP' },
@@ -159,7 +216,7 @@ export const ui = {
     },
     contact: {
       cmd: 'contacto',
-      headline: '¿Necesita un arquitecto .NET o usar una herramienta? Ambos comienzan de la misma manera.',
+      headline: '¿Tiene una idea, un desafío o un proceso que podría funcionar mejor?',
       linkedin: 'linkedin /in/gumbarros',
       github: 'github /gumbarros',
       photo: 'yo.png',
@@ -170,8 +227,8 @@ export const ui = {
       mit: 'bibliotecas MIT',
     },
     meta: {
-      title: 'Gustavo Mauricio de Barros · Arquitecto de Software .NET',
-      description: 'Arquitecto de software que construye herramientas .NET que convierten problemas con nombre en una línea.',
+      title: 'Gustavo Mauricio de Barros · Arquitecto de Software',
+      description: 'Productos y sistemas digitales que hacen más simple el trabajo complejo.',
     },
   },
 } as const;
@@ -232,6 +289,11 @@ export const solutionContent: Record<
       description: 'Uma implementação .NET do protocolo Embedded Sass com uma API nativa.',
       role: 'autor',
     },
+    'casa-da-musica': {
+      problem: 'Um espaço digital para uma escola de música.',
+      description: 'Uma presença digital acolhedora para quem está descobrindo e se conectando com a música.',
+      role: 'projeto de site',
+    },
   },
   es: {
     ncalc: {
@@ -256,6 +318,11 @@ export const solutionContent: Record<
       problem: 'Compile Sass dentro de .NET, no mediante un proceso hijo de Node.',
       description: 'Una implementación .NET del protocolo Embedded Sass con una API nativa.',
       role: 'autor',
+    },
+    'casa-da-musica': {
+      problem: 'Un espacio digital para una escuela de música.',
+      description: 'Una presencia digital acogedora para quienes descubren y conectan con la música.',
+      role: 'proyecto web',
     },
   },
 };

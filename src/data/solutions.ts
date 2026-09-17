@@ -14,6 +14,7 @@ export interface Solution {
   github: string;
   nuget?: string;
   moreUrl?: string;
+  category: string;
 }
 
 export const solutions: Solution[] = [
@@ -31,6 +32,7 @@ export const solutions: Solution[] = [
     github: 'https://github.com/ncalc/ncalc',
     nuget: 'https://www.nuget.org/packages/NCalc',
     moreUrl: 'https://ncalc.gumbarros.com.br',
+    category: 'Open source',
   },
   {
     id: 'jjmasterdata',
@@ -48,6 +50,7 @@ export const solutions: Solution[] = [
     creditUrl: 'https://jjconsulting.com.br',
     github: 'https://github.com/JJConsulting/JJMasterData',
     moreUrl: 'https://md.jjconsulting.tech',
+    category: 'Business platform',
   },
   {
     id: 'fluentstorage-git',
@@ -72,6 +75,7 @@ await git.SetObject("2026-08-21.json", stream);`,
     github:
       'https://github.com/robinrodricks/FluentStorage/wiki/Git-Repository-Storage',
     nuget: 'https://www.nuget.org/packages/FluentStorage.Git',
+    category: 'Open source',
   },
   {
     id: 'embeddedsass',
@@ -88,5 +92,6 @@ var result = await compiler.CompileStringAsync(
     role: 'author',
     github: 'https://github.com/gumbarros/EmbeddedSass.Net',
     nuget: 'https://www.nuget.org/packages/EmbeddedSass.Net',
+    category: 'Open source',
   },
 ];

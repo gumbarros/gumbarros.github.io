@@ -310,8 +310,7 @@ button:focus-visible,
 }
 
 .hero__inner {
-  padding-block: clamp(var(--space-4xl), 14vw, var(--space-4xl))
-    clamp(var(--space-4xl), 12vw, var(--space-4xl));
+  padding-block: clamp(var(--space-3xl), 10vw, var(--space-4xl));
 }
 
 .hero__cmd {
@@ -620,12 +619,75 @@ button:focus-visible,
   transform: translateX(3px);
 }
 
+/* Human-facing overview; projects act as supporting proof. */
+.expertise,
+.portfolio { border-bottom: 1px solid var(--color-rule); scroll-margin-top: 72px; }
+.expertise__head, .portfolio__head { padding-top: var(--space-3xl); max-width: 58rem; }
+.expertise__head .cmd, .portfolio__head .cmd { display: block; font-size: var(--text-sm); color: var(--color-ink-3); margin-bottom: var(--space-md); }
+.expertise__head h2, .portfolio__head h2 { font-size: var(--text-display-s); max-width: 22ch; }
+.expertise__head > p, .portfolio__head > p { margin-top: var(--space-lg); max-width: 55ch; color: var(--color-ink-2); font-size: var(--text-lg); }
+.expertise__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--color-rule); margin-top: var(--space-2xl); }
+.expertise__item { padding: var(--space-xl); border-right: 1px solid var(--color-rule); min-height: 16rem; }
+.expertise__item:last-child { border-right: 0; }
+.expertise__item > span, .project-card__type { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); }
+.expertise__item h3, .project-card h3 { font-size: var(--text-2xl); margin-top: var(--space-xl); }
+.expertise__item p { margin-top: var(--space-md); color: var(--color-ink-2); max-width: 30ch; }
+.portfolio__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: var(--space-2xl); margin-bottom: var(--space-3xl); background: var(--color-rule); border: 1px solid var(--color-rule); }
+.project-card { display: flex; flex-direction: column; min-height: 17rem; padding: var(--space-xl); background: var(--color-paper); transition: background var(--dur-base) var(--ease-out); }
+.project-card:hover { background: var(--color-paper-2); }
+.project-card__top, .project-card__footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
+.project-card__top code { color: var(--color-ink-3); font-size: var(--text-xs); }
+.project-card > p { margin-top: var(--space-md); max-width: 42ch; color: var(--color-ink-2); line-height: 1.6; }
+.project-card__footer { margin-top: auto; padding-top: var(--space-xl); font-size: var(--text-sm); color: var(--color-ink-3); }
+.project-card__footer a { color: var(--color-accent); font-family: var(--font-mono); }
+.project-card__footer a:hover { color: var(--color-focus); }
+
+.featured-project {
+  border-bottom: 1px solid var(--color-rule);
+  scroll-margin-top: 72px;
+}
+
+.featured-project__inner {
+  display: grid;
+  grid-template-columns: minmax(13rem, 1fr) minmax(0, 2fr);
+  gap: var(--space-3xl);
+  align-items: center;
+  padding-block: clamp(4rem, 9vw, 6rem);
+}
+
+.featured-project__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--color-ink-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.featured-project__identity img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.featured-project__content h2 { font-size: var(--text-display); }
+.featured-project__content p { margin-top: var(--space-lg); max-width: 52ch; color: var(--color-ink-2); font-size: var(--text-lg); }
+.featured-project__content .btn { margin-top: var(--space-xl); }
+
+.coming-soon { min-height: calc(100vh - 15rem); display: grid; place-items: center; }
+.coming-soon__inner { padding-block: var(--space-4xl); max-width: 58rem; }
+.coming-soon code { color: var(--color-accent); font-size: var(--text-sm); }
+.coming-soon h1 { margin-top: var(--space-lg); font-size: var(--text-display); max-width: 14ch; }
+.coming-soon p { margin-top: var(--space-lg); max-width: 47ch; color: var(--color-ink-2); font-size: var(--text-lg); }
+.coming-soon .btn { margin-top: var(--space-2xl); }
+
 /* =============================================================
    About: the person
    ============================================================= */
 .about {
   border-bottom: 1px solid var(--color-rule);
-  padding-block: var(--space-3xl);
+  padding-block: clamp(var(--space-2xl), 8vw, var(--space-3xl));
   scroll-margin-top: 72px;
 }
 
@@ -818,7 +880,7 @@ button:focus-visible,
    ============================================================= */
 .contact {
   border-bottom: 1px solid var(--color-rule);
-  padding-block: var(--space-3xl);
+  padding-block: clamp(var(--space-2xl), 8vw, var(--space-3xl));
   scroll-margin-top: 72px;
 }
 
@@ -968,6 +1030,26 @@ button:focus-visible,
    Responsive
    ============================================================= */
 @media (max-width: 60rem) {
+  .featured-project__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .expertise__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise__item,
+  .expertise__item:last-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-rule);
+    min-height: 0;
+  }
+
+  .expertise__item:last-child {
+    border-bottom: 0;
+  }
+
   .entry {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
@@ -1011,6 +1093,35 @@ button:focus-visible,
 }
 
 @media (max-width: 48rem) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: 14rem;
+  }
+
+  .portfolio__grid {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .project-card {
+    min-height: 0;
+    padding: var(--space-lg);
+  }
+
+  .project-card h3 {
+    font-size: var(--text-xl);
+    line-height: 1.15;
+    overflow-wrap: break-word;
+  }
+
+  .project-card__footer {
+    padding-top: var(--space-lg);
+    gap: var(--space-sm);
+  }
+
   html {
     scroll-padding-top: 56px;
   }
@@ -1029,7 +1140,7 @@ button:focus-visible,
 
   .nav__flags {
     gap: var(--space-xs);
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .nav__flag {
@@ -1051,6 +1162,23 @@ button:focus-visible,
   .codebox__body {
     font-size: var(--text-xs);
     padding: var(--space-md);
+  }
+
+  .hero__lede,
+  .portfolio__head > p,
+  .featured-project__content p,
+  .about__lead,
+  .coming-soon p {
+    font-size: var(--text-base) !important;
+  }
+
+  .featured-project__identity {
+    gap: var(--space-sm);
+  }
+
+  .featured-project__identity img {
+    width: 3.5rem;
+    height: 3.5rem;
   }
 
 }

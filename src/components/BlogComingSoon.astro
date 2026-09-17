@@ -1,0 +1,27 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import type { Locale } from '../i18n/ui';
+import { getLocaleUrl } from '../i18n/utils';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const copy: Record<Locale, { eyebrow: string; title: string; body: string; back: string }> = {
+  en: { eyebrow: 'blog / coming soon', title: 'Notes are on their way.', body: 'A space for ideas, lessons from projects, and practical thoughts about building better digital experiences.', back: 'back to portfolio' },
+  'pt-br': { eyebrow: 'blog / em breve', title: 'As primeiras notas estão a caminho.', body: 'Um espaço para ideias, aprendizados de projetos e reflexões práticas sobre criar experiências digitais melhores.', back: 'voltar ao portfólio' },
+  es: { eyebrow: 'blog / próximamente', title: 'Las primeras notas están en camino.', body: 'Un espacio para ideas, aprendizajes de proyectos y reflexiones prácticas sobre crear mejores experiencias digitales.', back: 'volver al portafolio' },
+};
+const content = copy[locale];
+---
+
+<SiteLayout locale={locale} title={`${content.title} · Gustavo Mauricio de Barros`} description={content.body}>
+  <section class="coming-soon">
+    <div class="wrap coming-soon__inner">
+      <code>{content.eyebrow}</code>
+      <h1>{content.title}</h1>
+      <p>{content.body}</p>
+      <a class="btn btn--primary" href={getLocaleUrl(locale, '/')}>
+        <span>← {content.back}</span>
+      </a>
+    </div>
+  </section>
+</SiteLayout>

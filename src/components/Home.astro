@@ -17,25 +17,6 @@ const localizedSolutions = solutions.map((p) => {
   return { ...p, ...extra };
 });
 
-// Naive terminal highlighting: mute comment lines; wrap a leading keyword.
-function highlight(src: string): string {
-  return src
-    .split('\n')
-    .map((line) => {
-      const trimmed = line.trimStart();
-      if (trimmed.startsWith('//')) {
-        return `<span class="c">${line}</span>`;
-      }
-      const m = trimmed.match(/^(var|await|IStore|builder|using|new|$color)\b/);
-      if (m) {
-        const kw = m[0];
-        const idx = line.indexOf(kw);
-        return `${line.slice(0, idx)}<span class="k">${kw}</span>${line.slice(idx + kw.length)}`;
-      }
-      return line;
-    })
-    .join('\n');
-}
 ---
 
 <SiteLayout locale={locale}>
@@ -56,61 +37,49 @@ function highlight(src: string): string {
     </div>
   </header>
 
-  <!-- ============================ SOLUTIONS ============================ -->
-  <section class="ledger" id="solutions">
-    <div class="wrap ledger__head reveal">
-      <code class="cmd">gumbarros@portfolio:~$ ls ./problems/ · {t('solutions.entries')(localizedSolutions.length)}</code>
-      <h2>{t('solutions.headline')}</h2>
+  <!-- ============================ PORTFOLIO ============================ -->
+  <section class="portfolio" id="portfolio">
+    <div class="wrap portfolio__head reveal">
+      <code class="cmd">gumbarros@portfolio:~$ {t('portfolio.cmd')}</code>
+      <h2>{t('portfolio.headline')}</h2>
+      <p>{t('portfolio.intro')}</p>
     </div>
-
-    <div class="wrap ledger__list">
-      {localizedSolutions.map((p, i) => (
-        <article class:list={['entry', { 'entry--flip': i % 2 === 1 }]}>
-          <div class="entry__problem reveal">
-            <code class="entry__prompt"><span class="p-user">$</span> {t('solutions.prompt')}</code>
-            <h3>{p.problem}</h3>
-            <p class="entry__desc">{p.description}</p>
+    <div class="wrap portfolio__grid">
+      {localizedSolutions.map((p) => (
+        <article class="project-card reveal">
+          <div class="project-card__top">
+            <span class="project-card__type">{p.category}</span>
+            {p.stars && <code>★ {p.stars}</code>}
           </div>
-
-          <div class="entry__solution reveal">
-            <div class="codebox">
-              <div class="codebox__bar">
-                <span>{p.codeLabel}</span>
-                <span>{p.name}</span>
-              </div>
-              <pre class="codebox__body"><code set:html={highlight(p.code)} /></pre>
-            </div>
-
-            <div class="entry__meta">
-              <code class="entry__stats">
-                ★ {p.stars}{p.forks ? ` · ${p.forks} forks` : ''}{p.statsNote ? ` (${p.statsNote})` : ''}
-              </code>
-              <span class="entry__role">{p.role}</span>
-              {p.credit && (
-                <span class="entry__credit">
-                  {p.credit} · <a href={p.creditUrl} target="_blank" rel="noopener">{p.creditUrl?.replace(/^https?:\/\//, '')}</a>
-                </span>
-              )}
-            </div>
-
-            <div class="entry__links">
-              {p.moreUrl && (
-                <a class="btn btn--primary" href={p.moreUrl} target="_blank" rel="noopener">
-                  <span>{t('solutions.viewMore')}</span><span class="arrow">↗</span>
-                </a>
-              )}
-              <a class="tlink" href={p.github} target="_blank" rel="noopener">
-                <span>github</span><span class="arrow">↗</span>
-              </a>
-              {p.nuget && (
-                <a class="tlink" href={p.nuget} target="_blank" rel="noopener">
-                  <span>nuget</span><span class="arrow">↗</span>
-                </a>
-              )}
-            </div>
+          <h3>{p.name}</h3>
+          <p>{p.description}</p>
+          <div class="project-card__footer">
+            <span>{p.role}</span>
+            {p.moreUrl ? (
+              <a href={p.moreUrl} target="_blank" rel="noopener">{t('portfolio.visit')} <span class="arrow">↗</span></a>
+            ) : (
+              <a href={p.github} target="_blank" rel="noopener">{t('portfolio.details')} <span class="arrow">↗</span></a>
+            )}
           </div>
         </article>
       ))}
+    </div>
+  </section>
+
+  <!-- ============================ FEATURED PROJECT ============================ -->
+  <section class="featured-project" id="solutions">
+    <div class="wrap featured-project__inner reveal">
+      <div class="featured-project__identity">
+        <img src="https://gumbarros.com.br/casa-da-musica/logo.jpg" alt="Casa da Música" width="76" height="76" loading="lazy" decoding="async" />
+        <span>{t('featuredProject.label')}</span>
+      </div>
+      <div class="featured-project__content">
+        <h2>Casa da Música</h2>
+        <p>{t('featuredProject.body')}</p>
+        <a class="btn btn--primary" href="https://gumbarros.com.br/casa-da-musica" target="_blank" rel="noopener">
+          <span>{t('featuredProject.visit')}</span><span class="arrow">↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
